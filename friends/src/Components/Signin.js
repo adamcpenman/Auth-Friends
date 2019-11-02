@@ -23,7 +23,7 @@ const [error, setError] = useState()
      api()
         .post('/api/login', data)
         .then(result => {
-            localStorage.setItem("token", result.data.token)
+            localStorage.setItem("token", result.data.payload)
             console.log(result)
             props.history.push("/friends")
         })

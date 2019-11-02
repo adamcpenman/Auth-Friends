@@ -4,7 +4,7 @@ import { api } from "../utils/api";
 import FriendsCard from "./FriendsCard";
 
 function Friends(){
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
 useEffect(() => {
     api()
