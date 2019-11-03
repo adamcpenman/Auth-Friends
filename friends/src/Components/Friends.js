@@ -4,35 +4,39 @@ import { api } from "../utils/api";
 import FriendsCard from "./FriendsCard";
 import AddFriends from "./AddFriends";
 
-function Friends(){
-    // const [ loading ] = useState(false)
+function Friends() {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
-useEffect(() => {
-    api()
-        .get("/api/friends")
-        .then(res => setData(res.data))
-        .catch(err => console.log(err))
-});
+    useEffect(() => {
+        setIsLoading(false)
+        api()
+            .get("/api/friends")
+            .then(res => setData(res.data))
+            .catch(err => console.log(err))
+    });
 
-//  if (loading) {
-//     return <div className="spinner"><h2>Loading Data...</h2></div>;
-//   }
     return (
         <>
-         <h1>Friends</h1>
-        <div className="friendsContainer">
-           
-            {data.map(friend => (
-                <div key={friend.id}>
-                    <FriendsCard friend={friend} />
-                </div>
-            ))}
+        
+        {isLoading ? (
+          <div className="spinner"><h2>Loading Data...</h2></div>
+        ) : (
+            null
+          )}
+            <h1 className="friendsHeader">Friends</h1>
+            <div className="friendsContainer">
+
+                {data.map(friend => (
+                    <div key={friend.id}>
+                        <FriendsCard friend={friend} />
+                    </div>
+                ))}
             </div>
             <div className="formContainer">
-            <AddFriends />
+                <AddFriends />
             </div>
-        
+
         </>
     )
 }
