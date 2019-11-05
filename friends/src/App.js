@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Link, Route, withRouter} from "react-router-dom";
+import { Link, Route, withRouter } from "react-router-dom";
 import { getToken } from "./utils/api";
 
 import Friends from "./Components/Friends";
@@ -16,16 +16,16 @@ function App() {
   return (
     <div className="App">
 
-     <nav>
+      <nav>
         <Link to="/">Home</Link>
-        {!signedIn &&<Link to="signin">Sign In</Link>}
-        {signedIn &&<Link to="friends">Friends</Link>}
-        {signedIn &&<Link to="logout">Log Out</Link>}
+        {!signedIn && <Link to="signin">Sign In</Link>}
+        {signedIn && <Link to="friends">Friends</Link>}
+        {signedIn && <Link to="logout">Log Out</Link>}
       </nav>
 
       <Route exact path="/" component={Home} />
       <Route exact path="/signin" component={Signin} />
-      <ProtectedRoute exact path="/friends" component={Friends}/>
+      <ProtectedRoute exact path="/friends" component={Friends} />
       <ProtectedRoute exact path="/logout" component={Logout} />
     </div>
   );

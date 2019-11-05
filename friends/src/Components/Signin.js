@@ -31,7 +31,7 @@ function Signin(props) {
       })
   }
 
-  setTimeout(isLoading, 2000)
+  // setTimeout(isLoading, 2000)
 
   return (
     <div>

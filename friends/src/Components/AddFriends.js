@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { api } from "../utils/api";
 
 function AddFriends() {
-    const [newFriend, setNewFriend] = useState ({
+    const [newFriend, setNewFriend] = useState({
         name: "",
         age: "",
         email: ""
@@ -17,35 +17,36 @@ function AddFriends() {
 
     const handleSubmit = e => {
         e.preventDefault();
-    api()
-        .post("/api/friends", newFriend)
-            .then(res => setNewFriend({...newFriend, 
+        api()
+            .post("/api/friends", newFriend)
+            .then(res => setNewFriend({
+                ...newFriend,
                 name: "",
                 age: "",
                 email: ""
-        }))
+            }))
             .catch(err => console.log(err));
     }
 
-    
+
     return (
         <div className="formCard">
             <form onSubmit={handleSubmit}>
-                <input 
+                <input
                     type="text"
                     name="name"
                     placeholder="Name"
                     value={newFriend.name}
                     onChange={handleChange}
                 />
-                 <input 
+                <input
                     type="text"
                     name="age"
                     placeholder="Age"
                     value={newFriend.age}
                     onChange={handleChange}
                 />
-                 <input 
+                <input
                     type="email"
                     name="email"
                     placeholder="Email"
