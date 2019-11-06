@@ -9,6 +9,3 @@
   "routes": [{ "src": "/(.*)", "dest": "friends/$1" }]
 } 
 
-
-
-// pushing 
