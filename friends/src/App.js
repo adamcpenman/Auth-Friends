@@ -9,12 +9,17 @@ import Home from "./Components/Home";
 import Logout from "./Components/Logout";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Signin from "./Components/Signin";
+import {Helmet} from "react-helmet";
 
 
 function App() {
   const signedIn = getToken();
   return (
     <div className="App">
+       <Helmet>
+            <title>Authentication</title>
+            <meta name="tokens, private routes, and authentication" content="tokens, private routes, and authentication" />
+        </Helmet>
 
       <nav>
         <Link to="/">Home</Link>
