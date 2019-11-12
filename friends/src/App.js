@@ -18,7 +18,7 @@ function App() {
     <div className="App">
        <Helmet>
             <title>Authentication</title>
-            <meta name="tokens, private routes, and authentication" content="tokens, private routes, and authentication" />
+            <meta name="description" content="tokens, private routes, and authentication" />
         </Helmet>
 
       <nav>
